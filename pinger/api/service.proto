@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package pinger;
+
+option go_package = "pinger/pkg/service;service";
+
+service Reporter {
+  rpc GetReport(GetRequest) returns (stream GetResponse) {}
+}
+
+message GetRequest {
+  string location = 1;
+}
+
+message GetResponse {
+  oneof value {
+    string time = 1;
+    bytes chunk = 2;
+  }
+}

@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package timer;
+
+import "google/protobuf/timestamp.proto";
+option go_package = "timer-server/pkg/service;service";
+
+service Timer {
+  rpc GetTime(TimeRequest) returns (TimeResponse) {}
+}
+
+message TimeRequest {
+  string message = 1;
+}
+
+message TimeResponse {
+  google.protobuf.Timestamp time = 1;
+}
