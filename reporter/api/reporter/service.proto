@@ -13,8 +13,8 @@ message GetRequest {
 }
 
 message GetResponse {
-  oneof value {
-    string time = 1;
-    bytes chunk = 2;
+  oneof res {
+    uint32 status = 1;
+    string url = 2;
   }
 }

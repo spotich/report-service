@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package reporter;
+
+option go_package = "reporter/pkg/reporter/service;service";
+
+service Reporter {
+  rpc GetReport(GetRequest) returns (stream GetResponse) {}
+}
+
+message GetRequest {
+  string location = 1;
+}
+
+message GetResponse {
+  oneof res {
+    uint32 status = 1;
+    string url = 2;
+  }
+}
