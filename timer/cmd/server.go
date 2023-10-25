@@ -9,6 +9,7 @@ import (
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
+	"google.golang.org/protobuf/types/known/emptypb"
 	"google.golang.org/protobuf/types/known/timestamppb"
 )
 
@@ -18,9 +19,8 @@ type server struct {
 	svc.UnimplementedTimerServer
 }
 
-func (s *server) GetTime(ctx context.Context, req *svc.TimeRequest) (*svc.TimeResponse, error) {
-	log.Printf("client message: %s", req.GetMessage())
-	return &svc.TimeResponse{
+func (s *server) GetTime(ctx context.Context, req *emptypb.Empty) (*svc.GetResponse, error) {
+	return &svc.GetResponse{
 		Time: timestamppb.Now(),
 	}, nil
 }
