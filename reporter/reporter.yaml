@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: reporter
+  labels:
+    app.kubernetes.io/name: reporter
+spec:
+  containers:
+  - name: reporter
+    image: spotich/reporter
+    ports:
+    - containerPort: 50052

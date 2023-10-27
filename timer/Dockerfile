@@ -1,6 +1,9 @@
-FROM golang:1.21.1-alpine
+FROM golang:latest
 
-WORKDIR /app
-COPY . /app
+WORKDIR /timer
 
-CMD ["./app/bin/server"]
+COPY ./ ./
+
+RUN go mod download
+
+CMD ["go", "run", "cmd/server.go"]

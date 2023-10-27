@@ -35,13 +35,13 @@ const (
 	riAccept = "image/jpg"
 
 	// FishText API
-	ftNumber = 500
+	ftNumber = 10
 	ftUrl    = "https://fish-text.ru/get"
 	ftType   = "sentence"
 
 	// Timer gRPC
 	grpcPort        = 50052
-	address         = "localhost:50051"
+	address         = "timer-service:50051"
 	defaultLocation = "Asia/Novosibirsk"
 
 	url = "http://localhost:3000/download"
@@ -173,7 +173,7 @@ func getReport(time string, image []byte, text string, stream reporter.Reporter_
 		wordsPerLine int = 6
 	)
 
-	text = strings.Repeat(text, 1000)
+	// text = strings.Repeat(text, 100)
 
 	var (
 		pageIndex int

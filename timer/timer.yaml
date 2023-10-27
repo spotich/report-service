@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: timer
+  labels:
+    app.kubernetes.io/name: timer
+spec:
+  containers:
+  - name: timer
+    image: spotich/timer
+    ports:
+    - containerPort: 50051
