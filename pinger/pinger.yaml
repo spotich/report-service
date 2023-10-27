@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pinger
+  labels:
+    app.kubernetes.io/name: pinger
+spec:
+  containers:
+  - name: pinger
+    image: spotich/pinger
+    ports:
+    - containerPort: 50050
