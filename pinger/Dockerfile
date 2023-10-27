@@ -1,9 +1,9 @@
 FROM golang:latest
 
-WORKDIR /reporter
+WORKDIR /pinger
 
 COPY ./ ./
 
 RUN go mod download
 
-CMD ["go", "run", "cmd/server.go"]
+CMD ["go", "run", "cmd/client.go"]
